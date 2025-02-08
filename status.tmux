@@ -26,19 +26,19 @@ tmux set -ogq status-fg "$TEXT"
 # MODE | SESSION
 ########################################
 
-LS="#[bold]"
+LS=""
 
 # MODE: tmux-mode-indicator
-tmux set -ogq @mode_indicator_prefix_mode_style "bg=$MAUVE,fg=black"
+tmux set -ogq @mode_indicator_prefix_mode_style "bg=$TEAL,fg=black"
 tmux set -ogq @mode_indicator_copy_mode_style   "bg=$PINK,fg=black"
 tmux set -ogq @mode_indicator_sync_mode_style   "bg=$BLUE,fg=black"
-tmux set -ogq @mode_indicator_empty_mode_style  "bg=$TEAL,fg=black"
+tmux set -ogq @mode_indicator_empty_mode_style  "bg=$MAUVE,fg=black"
 LS="#{tmux_mode_indicator}"
 
 # SESSION: [icon] session name [separator]
 SESSION_ICON="$(tmux show-option -gqv @status_session_icon)"
 SESSION_SEP="$(tmux show-option -gqv @status_session_separator)"
-LS="$LS #[fg=$MAUVE,bg=default]$SESSION_ICON #S $SESSION_SEP  "
+LS="$LS #[fg=$MAUVE,bg=default,bold]$SESSION_ICON #S $SESSION_SEP  "
 
 tmux set -g status-left "$LS"
 
@@ -48,11 +48,11 @@ tmux set -g status-left "$LS"
 
 # Window format
 WINDOW_ICON="$(tmux show-option -gqv @status_window_icon)"
-tmux set -gq window-status-format "#[fg=$SUBTEXT,bg=default]$WINDOW_ICON #I:#W#F"
+tmux set -gq window-status-format "#[fg=$SUBTEXT,bg=default,bold]$WINDOW_ICON #I:#W#F"
 
 # Current window
 CURR_WINDOW_ICON="$(tmux show-option -gqv @status_current_window_icon)"
-tmux set -gq window-status-current-format "#[fg=$BLUE,bg=default]$CURR_WINDOW_ICON #I:#W#F"
+tmux set -gq window-status-current-format "#[fg=$BLUE,bg=default,bold]$CURR_WINDOW_ICON #I:#W#F"
 
 ########################################
 # Right status bar
