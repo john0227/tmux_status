@@ -6,6 +6,7 @@ CWD="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 tmux source "${CWD}/options.conf" &> /dev/null
 
 # Define colors (from catppuccin macchiato)
+BLACK="#24273a"
 PINK="#f5bde6"
 MAUVE="#c6a0f6"
 LAVENDER="#b7bdf8"
@@ -29,10 +30,10 @@ tmux set -ogq status-fg "$TEXT"
 LS=""
 
 # MODE: tmux-mode-indicator
-tmux set -ogq @mode_indicator_prefix_mode_style "bg=$TEAL,fg=black"
-tmux set -ogq @mode_indicator_copy_mode_style   "bg=$PINK,fg=black"
-tmux set -ogq @mode_indicator_sync_mode_style   "bg=$BLUE,fg=black"
-tmux set -ogq @mode_indicator_empty_mode_style  "bg=$MAUVE,fg=black"
+tmux set -gq @mode_indicator_prefix_mode_style "bold,bg=$TEAL,fg=$BLACK"
+tmux set -gq @mode_indicator_copy_mode_style   "bold,bg=$PINK,fg=$BLACK"
+tmux set -gq @mode_indicator_sync_mode_style   "bold,bg=$BLUE,fg=$BLACK"
+tmux set -gq @mode_indicator_empty_mode_style  "bold,bg=$MAUVE,fg=$BLACK"
 LS="#{tmux_mode_indicator}"
 
 # SESSION: [icon] session name [separator]
