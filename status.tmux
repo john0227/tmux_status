@@ -56,7 +56,7 @@ tmux set -gq window-status-current-format "#[fg=$BLUE,bg=default]$CURR_WINDOW_IC
 
 ########################################
 # Right status bar
-# BATTERY TIME DATE [CUSTOM]
+# user defined plugins | [CUSTOM]
 ########################################
 
 RS="#[bold]"
