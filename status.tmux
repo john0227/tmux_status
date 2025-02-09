@@ -17,10 +17,10 @@ TEXT="#b8c0e0"
 SUBTEXT="#6e738d"
 
 # Status Options
-tmux set -ogq status-interval 1
-tmux set -ogq status-style "bg=default"
-tmux set -ogq status-bg "default"
-tmux set -ogq status-fg "$TEXT"
+tmux set -gq status-interval 1
+tmux set -gq status-style "bg=default"
+tmux set -gq status-bg "default"
+tmux set -gq status-fg "$TEXT"
 
 ########################################
 # Left status bar
@@ -41,7 +41,7 @@ SESSION_ICON="$(tmux show-option -gqv @status_session_icon)"
 SESSION_SEP="$(tmux show-option -gqv @status_session_separator)"
 LS="$LS #[fg=$MAUVE,bg=default,bold]$SESSION_ICON #S $SESSION_SEP  "
 
-tmux set -g status-left "$LS"
+tmux set -gq status-left "$LS"
 
 ########################################
 # Window status
@@ -70,23 +70,23 @@ RS="#[fg=$TEXT,bg=default]$RS"
 CUSTOM="$(tmux show-option -gqv @status_right_custom)"
 RS="$RS$CUSTOM"
 
-tmux set -g status-right "$RS"
+tmux set -gq status-right "$RS"
 
 ########################################
 # Other styles
 ########################################
 
 # Pane border and number indicator (inactive/active)
-tmux set -ogq pane-border-style "fg=$SUBTEXT,bg=default"
-tmux set -ogq pane-active-border-style "fg=$MAUVE,bg=default"
-tmux set -ogq display-panes-colour "$SUBTEXT"
-tmux set -ogq display-panes-active-colour "$MAUVE"
+tmux set -gq pane-border-style "fg=$SUBTEXT,bg=default"
+tmux set -gq pane-active-border-style "fg=$MAUVE,bg=default"
+tmux set -gq display-panes-colour "$SUBTEXT"
+tmux set -gq display-panes-active-colour "$MAUVE"
 
 # Clock mode
-tmux set -ogq clock-mode-colour "$MAUVE"
-tmux set -ogq clock-mode-style 24
+tmux set -gq clock-mode-colour "$MAUVE"
+tmux set -gq clock-mode-style 24
 
 # Message
-tmux set -ogq message-style "fg=$MAUVE,bg=default"
-tmux set -ogq message-command-style "fg=$MAUVE,bg=default"
+tmux set -gq message-style "fg=$MAUVE,bg=default"
+tmux set -gq message-command-style "fg=$MAUVE,bg=default"
 
