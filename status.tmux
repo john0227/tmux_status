@@ -21,6 +21,8 @@ tmux set -gq status-interval 1
 tmux set -gq status-style "bg=default"
 tmux set -gq status-bg "default"
 tmux set -gq status-fg "$TEXT"
+tmux set -gq status-left-length 200
+tmux set -gq status-right-length 200
 
 ########################################
 # Left status bar
