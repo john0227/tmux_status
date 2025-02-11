@@ -8,7 +8,7 @@
 
 Add the following to your `tmux.conf` file:
 
-```sh
+```shellsession
 $ set -g @plugin 'john0227/tmux_status'
 ```
 
@@ -16,7 +16,7 @@ $ set -g @plugin 'john0227/tmux_status'
 
 Clone this repository and add the following to your `tmux.conf` file:
 
-```sh
+```shellsession
 $ git clone https://github.com/john0227/tmux_status.git ~/.tmux/plugins/tmux_status
 $ run-shell ~/.tmux/plugins/tmux-mode-indicator/mode_indicator.tmux
 $ tmux source-file ~/.tmux.conf  # reload tmux.conf file
@@ -39,6 +39,7 @@ The following are the list of configurable options with their default values:
 | @status_date_format         | `%F`                |
 | @status_right_plugins       | `battery,time,date` |
 | @status_right_custom        | N/A                 |
+| @status_mode_indicator      | off                 |
 
 ### `@status_right_plugins`
 
@@ -64,7 +65,7 @@ In order to add custom plugins,
 You can add whatever you want to display on your tmux status bar by setting the `@status_right_custom` option.
 For example, the following was used to get the status bar shown above:
 
-```shell
+```shellsession
 $ tmux set -g @status_right_custom " #[fg=black,bg=#c6a0f6]🧁cupcakes "
 ```
 
@@ -76,8 +77,11 @@ $ tmux set -g @status_right_custom " #[fg=black,bg=#c6a0f6]🧁cupcakes "
 
 Add the following to your `tmux.conf` file:
 
-```sh
+```shellsession
+$ # Add plugin
 $ set -g @plugin 'MunifTanjim/tmux-mode-indicator'
+$ # Set mode indicator option on
+$ set -g @status_mode_indicator "on"
 ```
 
 > [!NOTE]  

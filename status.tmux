@@ -31,12 +31,15 @@ tmux set -gq status-right-length 200
 
 LS=""
 
-# MODE: tmux-mode-indicator
-tmux set -gq @mode_indicator_prefix_mode_style "bold,bg=$TEAL,fg=$BLACK"
-tmux set -gq @mode_indicator_copy_mode_style   "bold,bg=$PINK,fg=$BLACK"
-tmux set -gq @mode_indicator_sync_mode_style   "bold,bg=$BLUE,fg=$BLACK"
-tmux set -gq @mode_indicator_empty_mode_style  "bold,bg=$MAUVE,fg=$BLACK"
-LS="#{tmux_mode_indicator}"
+DISPLAY_MODE="$(tmux show-option -gqv @status_mode_indicator)"
+if [[ $DISPLAY_MODE = "on" ]]; then
+    # MODE: tmux-mode-indicator
+    tmux set -gq @mode_indicator_prefix_mode_style "bold,bg=$TEAL,fg=$BLACK"
+    tmux set -gq @mode_indicator_copy_mode_style   "bold,bg=$PINK,fg=$BLACK"
+    tmux set -gq @mode_indicator_sync_mode_style   "bold,bg=$BLUE,fg=$BLACK"
+    tmux set -gq @mode_indicator_empty_mode_style  "bold,bg=$MAUVE,fg=$BLACK"
+    LS="#{tmux_mode_indicator}"
+fi
 
 # SESSION: [icon] session name [separator]
 SESSION_ICON="$(tmux show-option -gqv @status_session_icon)"
