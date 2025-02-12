@@ -3,7 +3,7 @@
 CWD="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Source plugin options
-tmux source "${CWD}/options.conf" &> /dev/null
+tmux source "${CWD}/options.conf"
 
 # Define colors (from catppuccin macchiato)
 BLACK="#24273a"
