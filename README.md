@@ -18,7 +18,7 @@ Clone this repository and add the following to your `tmux.conf` file:
 
 ```shellsession
 $ git clone https://github.com/john0227/tmux_status.git ~/.tmux/plugins/tmux_status
-$ run-shell ~/.tmux/plugins/tmux-mode-indicator/mode_indicator.tmux
+$ run-shell ~/.tmux/plugins/tmux_status/status.tmux
 $ tmux source-file ~/.tmux.conf  # reload tmux.conf file
 ```
 
