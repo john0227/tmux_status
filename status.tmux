@@ -29,7 +29,8 @@ tmux set -gq status-right-length 200
 # MODE | SESSION
 ########################################
 
-LS=""
+# Initialize using user defined status-left
+LS="$(tmux show-option -gqv @status-left)"
 
 DISPLAY_MODE="$(tmux show-option -gqv @status_mode_indicator)"
 if [[ $DISPLAY_MODE = "on" ]]; then
@@ -38,7 +39,7 @@ if [[ $DISPLAY_MODE = "on" ]]; then
     tmux set -gq @mode_indicator_copy_mode_style   "bold,bg=$PINK,fg=$BLACK"
     tmux set -gq @mode_indicator_sync_mode_style   "bold,bg=$BLUE,fg=$BLACK"
     tmux set -gq @mode_indicator_empty_mode_style  "bold,bg=$MAUVE,fg=$BLACK"
-    LS="#{tmux_mode_indicator}"
+    LS="$LS#{tmux_mode_indicator}"
 fi
 
 # SESSION: [icon] session name [separator]
@@ -65,7 +66,8 @@ tmux set -gq window-status-current-format "#[fg=$BLUE,bg=default,bold]$CURR_WIND
 # user defined plugins | [CUSTOM]
 ########################################
 
-RS="#[bold]"
+# Initialize using user defined status-right
+RS="#[bold] $(tmux show-option -gqv @status-right)"
 
 BUILD_SCRIPT="$(tmux show-option -gqv @status_right_script)"
 RS="$RS$($CWD/scripts/build.sh)"
@@ -94,4 +96,3 @@ tmux set -gq clock-mode-style 24
 # Message
 tmux set -gq message-style "fg=$MAUVE,bg=default"
 tmux set -gq message-command-style "fg=$MAUVE,bg=default"
-
